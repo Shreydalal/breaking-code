@@ -7,7 +7,7 @@ import re
 app = Flask(__name__, template_folder='templates')
 
 # Load the application token from environment variables for security
-APPLICATION_TOKEN = "AstraCS:rEkkEBbkyIKwyMHhGnreGJAp:558f8c22a71dff88355daced8dffd83bd11797bbb63f6cbe5b142179a49e35a4"
+APPLICATION_TOKEN = os.getenv("APPICATION_TOKEN")
 BASE_API_URL = "https://api.langflow.astra.datastax.com"
 LANGFLOW_ID = "ae0482b3-29a7-43c4-a860-90b50e65c3f7"
 FLOW_ID = "079de2b6-9577-4b41-957c-e9263a15dee9"
