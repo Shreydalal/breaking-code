@@ -45,30 +45,51 @@
             <h1 class="text-2xl font-bold text-gray-700 text-center mb-6">What can I help with?</h1>
 
             <!-- Chat History -->
-            <div id="chat-history" class="mt-6 pb-8 pr-3 space-y-4 max-h-80 overflow-y-auto flex-grow">
+            <div id="chat-history" class="mt-6 pb-8 pl-8 space-y-4 max-h-80  h-96  overflow-y-auto flex-grow">
                 <!-- Dynamic chat messages will be added here -->
+                <div id="loader" class="flex justify-center item-center bg-blue-100 rounded-md h-10 pt-3 absolute mt-[14%] -ml-6 space-x-2 w-20 ">
+                    <!-- Loader -->
+                    <div class="h-3 w-3 bg-blue-500 rounded-full animate-bounce delay-500"></div>
+                    <div class="h-3 w-3 bg-blue-500 rounded-full animate-bounce delay-1000"></div>
+                    <div class="h-3 w-3 bg-blue-500 rounded-full animate-bounce delay-2000"></div>
+                  </div>
             </div>
+           
 
-            <!-- Message Input -->
-            <input 
-                type="text" 
-                id="message" 
-                class="w-full h-16 p-4 border border-gray-300 rounded-lg focus:outline-none"
-                placeholder="Type your message here..."></input>
+         <!-- Message Inpu -->
+         
+          
+            
+              
+<div class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+    <!-- <div id="loader" class=" absolute flex align-end mt- ab mt-4 hidden">
+        <div class="animate-spin rounded-full h-8 w-8 border-t-4 border-blue-500"></div>
+    </div> -->
+    <input 
+        type="text" 
+        id="message" 
+        class="w-full h-16 px-4 focus:outline-none" 
+        placeholder="Type your message here..."
+    >
+    <button 
+        id="submit-btn" 
+        class="bg-blue-500 flex items-center gap-2  mr-5 py-3 rounded-md text-white h-full px-5 hover:bg-blue-600 active:scale-95 transition-transform duration-150">
+        Submit
+       <img src="https://cdn-icons-png.flaticon.com/128/149/149446.png" class="invert brightness-0 filter" height="20px" width="20px" />
+    </button>
+</div>
+
 
             <!-- Submit Button -->
             <div class="flex justify-center mt-4">
-                <button 
+                <!-- <button 
                     id="submit-btn"
                     class="bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-600 active:scale-95 transition-transform duration-150">
                     Submit
-                </button>
+                </button> -->
             </div>
 
-            <!-- Loader -->
-            <div id="loader" class="flex justify-center items-center mt-4 hidden">
-                <div class="animate-spin rounded-full h-8 w-8 border-t-4 border-blue-500"></div>
-            </div>
+            
         </div>
     </div>
 
