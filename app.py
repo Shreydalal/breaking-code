@@ -90,7 +90,7 @@ def home():
             return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500
 
     # Render a simple page for GET requests
-    return render_template("temp.html", chat_history=chat_history)
+    return render_template("index.html", chat_history=chat_history)
 
 
 if __name__ == "__main__":
