@@ -7,20 +7,23 @@ import re
 app = Flask(__name__, template_folder='templates')
 
 # Load the application token from environment variables for security
-APPLICATION_TOKEN = os.getenv("APPICATION_TOKEN")
+APPLICATION_TOKEN = os.getenv("APPLICATION_TOKEN")
 BASE_API_URL = "https://api.langflow.astra.datastax.com"
-LANGFLOW_ID = "ae0482b3-29a7-43c4-a860-90b50e65c3f7"
-FLOW_ID = "079de2b6-9577-4b41-957c-e9263a15dee9"
+LANGFLOW_ID = "7d975e5a-9191-4559-b9bd-3a0b6df6dd8b"
+FLOW_ID = "ab2b919f-9235-40fb-b867-f22ed23d44d1"
 
 # Function to run the flow
 def run_flow(message: str) -> dict:
-    api_url = f"https://api.langflow.astra.datastax.com/lf/{LANGFLOW_ID}/api/v1/run/{FLOW_ID}?stream=false"
+    api_url = f"https://api.langflow.astra.datastax.com/lf/7d975e5a-9191-4559-b9bd-3a0b6df6dd8b/api/v1/run/ab2b919f-9235-40fb-b867-f22ed23d44d1?stream=false"
     payload = {
         "input_value": message,
         "output_type": "chat",
         "input_type": "chat",
     }
-    headers = {"Authorization": "Bearer " + APPLICATION_TOKEN, "Content-Type": "application/json"}
+    headers = {
+    "Authorization": f"Bearer {APPLICATION_TOKEN}",  # Replace with your actual API key
+    "Content-Type": "application/json"
+    }
     try:
         response = requests.post(api_url, json=payload, headers=headers)
         response.raise_for_status()  # Raise exception for HTTP errors
@@ -87,8 +90,8 @@ def home():
             return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500
 
     # Render a simple page for GET requests
-    return render_template("index.html", chat_history=chat_history)
+    return render_template("temp.html", chat_history=chat_history)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False,port=8080)
